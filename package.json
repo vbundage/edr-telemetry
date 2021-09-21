@@ -1,0 +1,43 @@
+{
+  "name": "telemetry",
+  "description": "Telemetry is a framework used to generate activity such as process, file, and network activity. The logged activity is used to test an EDR agent to ensure it captures data properly. ",
+  "version": "0.0.1",
+  "author": "Vincent Bundage @vbundage",
+  "bin": {
+    "telemetry": "./bin/run"
+  },
+  "bugs": "https://github.com/vbundage/edr-telemetry/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.3"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "eslint": "^5.16.0",
+    "eslint-config-oclif": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/vbundage/edr-telemetry",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "telemetry"
+  },
+  "repository": "vbundage/edr-telemetry",
+  "scripts": {
+    "posttest": "eslint .",
+    "prepack": "oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
