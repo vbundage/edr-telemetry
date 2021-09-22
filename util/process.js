@@ -1,4 +1,4 @@
-const {exec} = require('child_process');
+const { exec } = require('child_process');
 const os = require('os');
 
 class Process {
@@ -8,18 +8,20 @@ class Process {
     this.username = os.userInfo().username;
   }
 
-  startProcess() {
+  async startProcess() {
     this.startTime = new Date();
-    this.pid = this.execCommand();
+    this.pid = await this.execCommand();
   }
 
   execCommand() {
-    const process = exec(this.cmd, err => {
-      if (err) {
-        console.error(err);
-      }
+    return new Promise((res, rej) => {
+      const process = exec(this.cmd, err => {
+        if (err) {
+          rej(err);
+        }
+        res(process.pid)
+      })
     })
-    return process.pid;
   }
 }
 
