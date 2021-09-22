@@ -3,6 +3,7 @@ const os = require('os');
 
 class Process {
   constructor(cmd) {
+    this.type = 'PROCESS';
     this.name = cmd.split(' ')[0];
     this.cmd = cmd;
     this.username = os.userInfo().username;
