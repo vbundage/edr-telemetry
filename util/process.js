@@ -1,10 +1,11 @@
 const {exec} = require('child_process');
+const os = require('os');
 
 class Process {
-  constructor(name, cmd) {
-    this.name = name;
+  constructor(cmd) {
+    this.name = cmd.split(' ')[0];
     this.cmd = cmd;
-    this.username = process.env.USER;
+    this.username = os.userInfo().username;
   }
 
   startProcess() {
@@ -13,19 +14,16 @@ class Process {
   }
 
   execCommand() {
-    const process = exec(this.cmd, (err, stdout, stderr) => {
+    const process = exec(this.cmd, err => {
       if (err) {
         console.error(err);
-        return;
       }
-      console.log(stdout);
-      console.error(stderr);
     })
     return process.pid;
   }
 }
 
-// const proc = new Process('ls', 'ls -la');
+// const proc = new Process('ls -la');
 // proc.startProcess();
 // console.log(proc);
 
