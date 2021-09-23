@@ -10,7 +10,7 @@ class Process {
   }
 
   async startProcess() {
-    this.startTime = new Date();
+    this.timestamp = new Date();
     this.pid = await this.execCommand();
   }
 
