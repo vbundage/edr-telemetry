@@ -4,19 +4,19 @@ const os = require('os');
 class Process {
   constructor(cmd) {
     this.type = 'PROCESS';
-    this.name = cmd.split(' ')[0];
     this.cmd = cmd;
     this.username = os.userInfo().username;
   }
 
   async startProcess() {
     this.timestamp = new Date();
-    this.pid = await this.execCommand();
+    this.processName = this.cmd.split(' ')[0];
+    this.pid = await this.execCommand(this.cmd);
   }
 
-  execCommand() {
+  execCommand(cmd) {
     return new Promise((res, rej) => {
-      const process = exec(this.cmd, err => {
+      const process = exec(cmd, err => {
         if (err) {
           rej(err);
         }
@@ -27,7 +27,6 @@ class Process {
 }
 
 // const proc = new Process('ls -la');
-// proc.startProcess();
-// console.log(proc);
+// proc.startProcess().then(_ => console.log(proc));
 
 module.exports = Process;

@@ -1,7 +1,7 @@
 const os = require('os');
 const axios = require('axios');
 
-const TEST_URL = 'https://hookb.in/E7lZGJLQZoHVjY66jbK8';
+// const TEST_URL = 'https://hookb.in/E7lZGJLQZoHVjY66jbK8';
 
 class NetworkConnection {
   constructor(url) {
@@ -9,6 +9,7 @@ class NetworkConnection {
     this.username = os.userInfo().username;
     this.url = url;
     this.pid = process.pid;
+    this.processName = 'node';
   }
 
   makeRequest() {
