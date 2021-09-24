@@ -3,7 +3,7 @@ const fs = require('fs');
 const Process = require('./process');
 
 class File extends Process {
-  constructor(filename, fileAction, content = '', filepath = '../files') {
+  constructor(filename = 'edr_test.txt', fileAction, content = '', filepath = '../files') {
     super();
     this.absPath = path.resolve(path.join(filepath, filename));
     this.content = content;
