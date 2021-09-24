@@ -1,8 +1,8 @@
 const path = require('path');
 const { readFile } = require('fs/promises');
-const Process = require('./process');
-const Network = require('./network');
-const File = require('./file');
+const Process = require('../lib/process');
+const Network = require('../lib/network');
+const File = require('../lib/file');
 
 const processConfig = async configPath => {
   const fileConfig = JSON.parse(await readFile(configPath, { encoding: 'utf-8' }));
