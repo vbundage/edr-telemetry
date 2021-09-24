@@ -19,7 +19,7 @@ const processConfig = async configPath => {
       );
     }
     if (op.operationType === 'network') {
-      return new Network(op.url);
+      return new Network(op.url, op.message);
     }
     return null;
   });
