@@ -24,7 +24,8 @@
   "files": [
     "/bin",
     "/src",
-    "/util"
+    "/util",
+    "/lib"
   ],
   "homepage": "https://github.com/vbundage/edr-telemetry",
   "keywords": [
