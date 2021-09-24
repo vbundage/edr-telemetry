@@ -19,7 +19,7 @@ class TelemetryCommand extends Command {
   }
 }
 
-TelemetryCommand.description = ''
+TelemetryCommand.description = '';
 
 TelemetryCommand.flags = {
   // add --version flag to show CLI version
@@ -27,6 +27,6 @@ TelemetryCommand.flags = {
   // add --help flag to show CLI version
   help: flags.help({char: 'h'}),
   config: flags.string({char: 'c', description: 'configuration file path to generate telemetry'}),
-}
+};
 
-module.exports = TelemetryCommand
+module.exports = TelemetryCommand;
