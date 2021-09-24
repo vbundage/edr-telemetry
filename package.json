@@ -23,7 +23,8 @@
   },
   "files": [
     "/bin",
-    "/src"
+    "/src",
+    "/util"
   ],
   "homepage": "https://github.com/vbundage/edr-telemetry",
   "keywords": [
