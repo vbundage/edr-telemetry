@@ -1,0 +1,28 @@
+{
+  "operations": [
+    {
+      "operationType": "process",
+      "command": "whoami"
+    },
+    {
+      "operationType": "file",
+      "fileAction": "create",
+      "filename": "majora"
+    },
+    {
+      "operationType": "file",
+      "fileAction": "modify",
+      "filename": "nurburgring.txt",
+      "content": "The Nürburgring is a 150,000 person capacity motorsports complex located in the town of Nürburg, Rhineland-Palatinate, Germany."
+    },
+    {
+      "operationType": "file",
+      "fileAction": "delete",
+      "filename": "42.json"
+    },
+    {
+      "operationType": "network",
+      "url": "https://hookb.in/E7lZGJLQZoHVjY66jbK8"
+    }
+  ]
+}
