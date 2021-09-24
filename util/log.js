@@ -3,7 +3,7 @@ const fsUtil = require('./fs');
 const LOG_PATH = './logs'
 const logActivity = async operations => {
   try {
-    const logName = `/${(new Date()).toUTCString()}_log.json`;
+    const logName = `/${(new Date()).toISOString()}-log.json`;
     await fsUtil.writeFile(LOG_PATH + logName, JSON.stringify([], null, '\t'));
     for (const operation of operations) {
       await operation.startActivity();
