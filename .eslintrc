@@ -4,6 +4,7 @@
     "object-curly-spacing": "off",
     "no-warning-comments": "off",
     "no-negated-condition": "off",
+    "no-await-in-loop": "off",
     "semi": "off",
     "indent": [
       "error",
