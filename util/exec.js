@@ -8,7 +8,9 @@ const execCommand = cmd => {
       }
       res(process.pid)
     })
-  })
+  }).catch(error => {
+    throw error;
+  });
 }
 
 module.exports = {

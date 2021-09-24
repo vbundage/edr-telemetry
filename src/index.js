@@ -6,7 +6,7 @@ const logUtil = require('../util/log');
 class TelemetryCommand extends Command {
   async run() {
     const {flags} = this.parse(TelemetryCommand)
-    const configPath = flags.config || '../default_config.json';
+    const configPath = flags.config || './default_config.json';
 
     const exists = await fsUtil.fileExists(configPath);
     if (!exists) {
