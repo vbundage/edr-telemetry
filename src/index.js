@@ -8,14 +8,18 @@ class TelemetryCommand extends Command {
     const {flags} = this.parse(TelemetryCommand)
     const configPath = flags.config || './default_config.json';
 
-    const exists = await fsUtil.fileExists(configPath);
-    if (!exists) {
-      console.log('Please enter a valid config path.');
-      return;
-    }
+    try {
+      const exists = await fsUtil.fileExists(configPath);
+      if (!exists) {
+        console.log('Please enter a valid config path.');
+        return;
+      }
 
-    const operations = await configUtil.processConfig(configPath);
-    logUtil.logActivity(operations);
+      const operations = await configUtil.processConfig(configPath);
+      logUtil.logActivity(operations);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
