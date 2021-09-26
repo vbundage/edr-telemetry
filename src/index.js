@@ -16,9 +16,9 @@ class TelemetryCommand extends Command {
       }
 
       const operations = await configUtil.processConfig(configPath);
-      logUtil.logActivity(operations);
+      await logUtil.logActivity(operations);
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   }
 }

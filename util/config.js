@@ -20,11 +20,7 @@ const mapOperationToActivity = op => {
 
 const processConfig = async configPath => {
   let fileConfig;
-  try {
-    fileConfig = JSON.parse(await readFile(configPath, { encoding: 'utf-8' }));
-  } catch (error) {
-    throw error;
-  }
+  fileConfig = JSON.parse(await readFile(configPath, { encoding: 'utf-8' }));
   const operations = fileConfig.operations.map(mapOperationToActivity);
   return operations;
 };
