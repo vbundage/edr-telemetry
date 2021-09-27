@@ -10,8 +10,9 @@ const mapOperationToActivity = op => {
     return new File(
       path.basename(op.filename),
       op.fileAction,
-      op.content !== undefined ? op.content : undefined,
-      path.dirname(op.filename) === '.' ? undefined : path.dirname(op.filename)
+      op.content,
+      path.dirname(op.filename) === '.' ? undefined : path.dirname(op.filename),
+      op.ext
     );
   }
   if (op.operationType === 'network') return new Network(op.url, op.message);

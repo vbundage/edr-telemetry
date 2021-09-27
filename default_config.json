@@ -7,18 +7,21 @@
     {
       "operationType": "file",
       "fileAction": "create",
-      "filename": "majora.csv"
+      "filename": "majora",
+      "ext": "csv"
     },
     {
       "operationType": "file",
       "fileAction": "modify",
-      "filename": "nurburgring.txt",
-      "content": "The Nürburgring is a 150,000 person capacity motorsports complex located in the town of Nürburg, Rhineland-Palatinate, Germany."
+      "filename": "nurburgring",
+      "content": "The Nürburgring is a 150,000 person capacity motorsports complex located in the town of Nürburg, Rhineland-Palatinate, Germany.",
+      "ext": "txt"
     },
     {
       "operationType": "file",
       "fileAction": "delete",
-      "filename": "42.json"
+      "filename": "42",
+      "ext": "json"
     },
     {
       "operationType": "network",
