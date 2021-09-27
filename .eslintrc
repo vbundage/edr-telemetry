@@ -6,6 +6,7 @@
     "no-negated-condition": "off",
     "no-await-in-loop": "off",
     "semi": "off",
+    "max-params": "off",
     "indent": [
       "error",
       2
