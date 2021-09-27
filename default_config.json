@@ -7,7 +7,7 @@
     {
       "operationType": "file",
       "fileAction": "create",
-      "filename": "majora"
+      "filename": "majora.csv"
     },
     {
       "operationType": "file",

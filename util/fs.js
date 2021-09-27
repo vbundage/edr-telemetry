@@ -25,8 +25,16 @@ const readFile = path => {
     });
 };
 
+const makeDir = path => {
+  return fsPromises.mkdir(path)
+    .catch(error => {
+      throw error;
+    });
+}
+
 module.exports = {
   fileExists,
   writeFile,
   readFile,
+  makeDir,
 };

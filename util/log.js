@@ -18,6 +18,8 @@ const writeToLog = async (operations, logName) => {
 };
 
 const logActivity = async operations => {
+  const logDirExists = await fsUtil.fileExists('./logs');
+  if (!logDirExists) await fsUtil.makeDir('./logs');
   const logName = `/${(new Date()).toISOString()}-log.json`;
   await fsUtil.writeFile(LOG_PATH + logName, JSON.stringify([], null, '\t'));
   await writeToLog(operations, logName);
