@@ -5,6 +5,10 @@
       "command": "whoami"
     },
     {
+      "operationType": "process",
+      "command": "ls -lah"
+    },
+    {
       "operationType": "file",
       "fileAction": "create",
       "filename": "majora",

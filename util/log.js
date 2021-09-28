@@ -2,13 +2,13 @@ const fsUtil = require('./fs');
 
 const LOG_PATH = './logs'
 
-const writeToLog = async (operations, logName) => {
-  for (const operation of operations) {
+const writeToLog = async (activities, logName) => {
+  for (const activity of activities) {
     try {
-      await operation.startActivity();
+      await activity.startActivity();
       const readObj = JSON.parse(await fsUtil.readFile(LOG_PATH + logName));
       const writeObj = {}
-      writeObj[`${operation.type}`] = operation;
+      writeObj[`${activity.type}`] = activity;
       readObj.push(writeObj);
       await fsUtil.writeFile(LOG_PATH + logName, JSON.stringify(readObj, null, '\t'));
     } catch (error) {
@@ -17,12 +17,12 @@ const writeToLog = async (operations, logName) => {
   }
 };
 
-const logActivity = async operations => {
+const logActivity = async activities => {
   const logDirExists = await fsUtil.fileExists('./logs');
   if (!logDirExists) await fsUtil.makeDir('./logs');
   const logName = `/${(new Date()).toISOString()}-log.json`;
   await fsUtil.writeFile(LOG_PATH + logName, JSON.stringify([], null, '\t'));
-  await writeToLog(operations, logName);
+  await writeToLog(activities, logName);
 };
 
 module.exports = {

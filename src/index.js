@@ -9,28 +9,26 @@ class TelemetryCommand extends Command {
     const configPath = flags.config || './default_config.json';
 
     try {
-      const exists = await fsUtil.fileExists(configPath);
-      if (!exists) {
+      const configExists = await fsUtil.fileExists(configPath);
+      if (!configExists) {
         console.log('Please enter a valid config path.');
         return;
       }
 
-      const operations = await configUtil.processConfig(configPath);
-      await logUtil.logActivity(operations);
+      const activities = await configUtil.processConfig(configPath);
+      await logUtil.logActivity(activities);
     } catch (error) {
       throw error;
     }
   }
 }
 
-TelemetryCommand.description = '';
+TelemetryCommand.description = 'Telemetry is a framework used to generate activity such as process, file, and network activity.';
 
 TelemetryCommand.flags = {
-  // add --version flag to show CLI version
   version: flags.version({char: 'v'}),
-  // add --help flag to show CLI version
   help: flags.help({char: 'h'}),
-  config: flags.string({char: 'c', description: 'configuration file path to generate telemetry'}),
+  config: flags.string({char: 'c', description: 'json configuration file path to generate telemetry'}),
 };
 
 module.exports = TelemetryCommand;
