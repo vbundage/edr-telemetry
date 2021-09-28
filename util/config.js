@@ -1,5 +1,5 @@
 const path = require('path');
-const { readFile } = require('fs/promises');
+const fsUtil = require('../util/fs');
 const Process = require('../lib/process');
 const Network = require('../lib/network');
 const File = require('../lib/file');
@@ -20,7 +20,7 @@ const mapToActivity = obj => {
 };
 
 const processConfig = async configPath => {
-  const fileConfig = JSON.parse(await readFile(configPath, { encoding: 'utf-8' }));
+  const fileConfig = JSON.parse(await fsUtil.readFile(configPath));
   const activities = fileConfig.operations.map(mapToActivity);
   return activities;
 };
