@@ -1,4 +1,5 @@
 const {Command, flags} = require('@oclif/command')
+const {cli} = require('cli-ux');
 const configUtil = require('../util/config');
 const fsUtil = require('../util/fs');
 const logUtil = require('../util/log');
@@ -15,15 +16,21 @@ class TelemetryCommand extends Command {
         return;
       }
 
+      cli.action.start('Processing configuration file');
       const activities = await configUtil.processConfig(configPath);
+      cli.action.stop();
+
+      cli.action.start('Generating and logging activity');
       await logUtil.logActivity(activities);
+      cli.action.stop();
+      console.log('Check the logs directory for your log file!');
     } catch (error) {
       throw error;
     }
   }
 }
 
-TelemetryCommand.description = 'Telemetry is a framework used to generate activity such as process, file, and network activity.';
+TelemetryCommand.description = 'Generate logs for activity such as process, file, and network activity.';
 
 TelemetryCommand.flags = {
   version: flags.version({char: 'v'}),
