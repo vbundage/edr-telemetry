@@ -1,7 +1,7 @@
 Telemetry
 =========
 
-Telemetry is a framework used to generate activity such as process, file, and network activity. The logged activity is used to test an EDR agent to ensure it captures data properly. 
+Telemetry is a framework used to generate activity such as process, file, and network activity. The logged activity is used to test an agent to ensure it captures data properly. 
 
 <!-- toc -->
 - [Telemetry](#telemetry)
